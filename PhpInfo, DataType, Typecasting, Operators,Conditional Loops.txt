@@ -1,0 +1,266 @@
+
+<!-- Php info method -->
+<?php
+echo phpinfo();
+?>
+
+
+<!-- DataTypes in PHP -->
+
+<?php
+$check1 = 1;
+$check2 = 14.2;
+$check3 =  true;
+$check4 =  "Check Me";
+$check5 =  array("a","b","c","d");
+$check6 =  new stdClass;
+$check7 =  null;
+
+
+
+
+echo gettype($check1);
+echo "<br>";
+echo gettype($check2);
+echo "<br>";
+echo gettype($check3);
+echo "<br>";
+echo gettype($check4);
+echo "<br>";
+echo gettype($check5);
+echo "<br>";
+echo gettype($check6);
+echo "<br>";
+echo gettype($check7);
+
+?>
+
+<!-- TypeCasting in PHP -->
+
+<?php
+
+// TypeCasting Double/Float to Integer
+$check1 = 11.365;
+echo gettype($check1)."\n";
+$cast1 = (int)$check1;
+echo $cast1."\n";;
+echo gettype($cast1)."\n";
+
+// TypeCasting Integer to Double/Float
+$check2 = 12;
+echo gettype($check2)."\n";
+$cast2 = (double)$check2;
+echo $cast2."\n";
+echo gettype($cast2)."\n";
+
+// TypeCasting Boolean to Integer
+$check3 = false;
+echo gettype($check3)."\n";
+$cast3 = (int)$check3;
+echo $cast3."\n";
+echo gettype($cast3)."\n";
+
+// TypeCasting Integer to Boolean
+$check4 = 1;
+echo gettype($check4)."\n";
+$cast4 = (boolean)$check4;
+echo $cast4."\n";
+echo gettype($cast4)."\n";
+
+
+// TypeCasting String to Integer
+$check5 = "CheckMe";
+echo gettype($check5)."\n";
+$cast5 = (int)$check5;
+echo $cast5."\n";
+echo gettype($cast5)."\n";
+
+
+// TypeCasting Array to Integer
+$check6 = array("abc","bca","cba");
+echo gettype($check6)."\n";
+$cast6 = (int)$check6;
+echo $cast6."\n";
+echo gettype($cast6)."\n";
+
+
+// TypeCasting Integer to String
+$check7 = 56;
+echo gettype($check7)."\n";
+$cast7 = (string)$check7;
+echo $cast7."\n";
+echo gettype($cast7)."\n";
+
+// TypeCasting Array to String
+$check8 = array("abc","bca","cba");
+echo gettype($check8)."\n";
+$cast8 = (string)$check8;
+echo $cast8."\n";
+echo gettype($cast8)."\n";
+
+
+// TypeCasting String to Array
+$check9 = "abc";
+echo gettype($check9)."\n";
+$cast9 = (array)$check9;
+echo $cast9."\n";
+echo gettype($cast9)."\n";
+
+
+// TypeCasting Null to Integer
+$check10 = null;
+echo gettype($check10)."\n";
+$cast10 = (int)$check10;
+echo $cast10."\n";
+echo gettype($cast10)."\n";
+?>
+
+
+<!-- Operators in PHP -->
+
+<?php
+
+// Arithmetic Operators
+$a = 5;
+$b = 4;
+
+echo "Addition of $a,$b = ".($a + $b)."\n";
+echo "Addition of $a,$b = ".($a - $b)."\n" ;
+echo "Addition of $a,$b = ".($a / $b)."\n";
+echo "Addition of $a,$b = ".($a * $b)."\n";
+echo "Addition of $a,$b = ".($a ** $b)."\n";
+echo "Addition of $a,$b = ".($a % $b)."\n";
+
+
+// Comparison Operators
+$a = 9;
+$b= 5;
+
+echo var_dump($a > $b)."\n";
+echo var_dump($a >= $b)."\n";
+echo var_dump($a < $b)."\n";
+echo var_dump($a <= $b)."\n";
+echo var_dump($a == $b)."\n";
+echo var_dump($a != $b)."\n";
+echo var_dump($a === $b)."\n";
+
+// Assignment Operators
+
+$a = 5;
+$x1 = $a;
+$x2 = 9;
+$x2 += $a;
+$x3 = 3;
+$x3 *= $a;
+$x4 = 10;
+$x4 /= $a;
+$x5 = 2;
+$x5 -= $a;
+
+echo "Value After Assigned ".$x1."\n";
+echo "Value After Assigned ".$x2."\n";
+echo "Value After Assigned ".$x3."\n";
+echo "Value After Assigned ".$x4."\n";
+echo "Value After Assigned ".$x5."\n";
+
+
+// Logical Operators
+
+$x =  true;
+$y = false;
+
+echo var_dump($x && $y);
+echo var_dump($x || $y);
+echo var_dump($x && !$y);
+
+?>
+
+
+<!-- Conditional Loop -->
+
+<?php
+
+// if-else and else-if condition
+
+$a = 7;
+echo "Age validation check for Application\n ";
+if($a >= 18 && $a <=60 ){
+  echo "You Enter $a and You Are Eligible for Applying";
+}
+else if ($a >=60){
+  echo "You Enter $a and You are not Eligible for Applying because you are now considered as a senior citizen ";
+}
+else {
+  echo "You are not eligible because your age is $a and below 18";
+}
+
+
+// while loop
+$i = 1;
+while($i<=10){
+  echo $i."\n";
+  $i++;
+  
+}
+
+
+// do-while loop
+
+$i1 = 1;
+do{
+  echo $i1."\n";
+  $i1++;
+  
+}while($i1<=10);
+
+
+
+// for loop 
+
+$a = 0;
+$sum = 0;
+for ($i=0; $i<=10;$i++){
+  $sum = $a + $i;
+  echo $sum."\n";
+}
+
+
+// for-each loop
+
+$arr = array("mridul","mehul","manik");
+
+foreach($arr as $element){
+  echo $element."\n";
+}
+
+
+// switch case
+
+$num = 10;
+
+switch($num){
+  case 1:
+  echo "Monday";
+  break;
+  case 2:
+  echo "Tuesday";
+  break;
+  case 3:
+  echo "Wednesday";
+  break;
+  case 4:
+  echo "Thursday";
+  break;
+  case 5:
+  echo "Friday";
+  break;
+  case 6:
+  echo "Saturday";
+  break;
+  case 7:
+  echo "Sunday";
+  break;
+  default:
+  echo "You enter wrong number";
+}
+?>

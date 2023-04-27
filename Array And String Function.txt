@@ -1,0 +1,171 @@
+Array Functions
+
+<?php
+
+1  Function to convert key value in lower/upper case
+$arr = array('name' => 'Mridul','salary'=> none ,'position'=> 'Trainee');
+
+print_r (array_change_key_case($arr,CASE_UPPER));
+
+
+2 array_chunk function
+$arr = array(1,2,3,4,5,6,7,8,9,10);
+
+print_r (array_chunk($arr,3));
+
+
+3 array_combine function
+
+$arr1 = array(2,4,6,8,10);
+$arr2 = array(1,3,5,7,9);
+$arr3 = array_combine($arr1,$arr2);
+
+print_r ($arr3);
+
+
+4 array_diff function
+
+$arr1 = array("a" => "a","b","c","d");
+$arr2 = array("b" => "a","b","c","e");
+$arr3 = array_diff($arr1,$arr2);
+print_r ($arr3);
+
+5 array_fill function
+
+$arr = array_fill(0,10,"i'm filled");
+print_r ($arr);
+
+6 array_map function
+function multiply($num){
+  return ($num * $num);
+}
+
+$arr = [2,5,7,8];
+$a = array_map('multiply',$arr);
+print_r ($a);
+
+
+7 array_unique function
+
+$arr = array("a" => "north", "north","east","b" => "south","east","west");
+
+$arr1 = array_unique($arr);
+print_r ($arr1);
+
+8 array_merge function
+
+$array = array ('Identity' => array('Color1','Color2','Color3'), 'Color' => array('Red','Blue','Yellow'));
+$merged = array_merge($array['Identity'],$array['Color']);
+print_r ($merged);
+
+
+9 array_Slice Function
+
+$arr=array("one","two","three","four","five","six","seven","eight");
+   print_r (array_slice($arr, 1, 2));
+
+
+10 array_search function
+
+$arr = array ("red","blue","white","yellow","green");
+print_r (array_search("green",$arr));
+
+11 array_unshift function
+$arr = array("red","blue","white","yellow","green");
+array_unshift($arr,"black");
+print_r ($arr);
+
+12 array_unshift function
+$arr = array("red","blue","white","yellow","green");
+array_shift($arr);
+print_r ($arr);
+
+
+13 array_splice
+$arr = array("red","blue","white","yellow","green");
+array_splice($arr,3);
+print_r ($arr);
+
+14 array_reverse
+$arr = array("red","blue","white","yellow","green");
+$arr1 = array_reverse($arr);
+print_r ($arr1);
+
+15 array_flip
+
+$arr = array("red","blue","white","yellow","green");
+$arr1 = array_flip($arr);
+print_r ($arr1);
+?>
+
+
+
+
+
+String Functions
+
+<?php
+$name = "Mridul is a good person"
+
+strlen string function
+echo "Length of a stirng is: ". strlen($name);
+echo "<br>";
+
+str_word_count string function
+echo str_word_count($name);
+echo "<br>";
+ 
+strrev string function
+echo strrev($name);
+echo "<br>";
+
+strpos string function
+echo strpos($name,"good");
+echo "<br>";
+  
+str_replace string function
+echo str_replace("bad","good",$name);
+echo "<br>";
+  
+str_repeat string function
+echo str_repeat($name,7);
+echo "<br>";
+echo "<pre>";
+
+rtrim string function
+echo rtrim("     SHARMA      ");
+echo "<br>";
+
+ltrim string function
+echo ltrim("     SHARMA      ");
+echo "</pre>";
+echo "<br>";
+
+strripos string function
+$pos = strripos($name,'i');
+echo $pos;
+
+explode string function
+print_r (explode($name,4));
+
+word wrap string function
+$width = 8;  
+$break = "</br>";  
+echo wordwrap($name, $width, $break);  
+
+ucfirst string function
+echo  ucfirst($name)
+
+ucwords string function
+echo  ucwords($name)
+
+strstr string function
+echo  strstr($name,'is')
+
+implode string function
+echo  implode('+',$name);
+
+
+?>
+
+  

@@ -1,0 +1,72 @@
+//calculator using function
+
+<?php
+
+
+function calc($option,$a,$b){
+$choice  = $option;
+
+switch($choice) {
+  case add:
+  echo "Addition of $a and $b is: ".($a + $b);
+  break;
+  case sum:
+  echo "Substraction of $a and $b is: ".($a - $b);
+  break;
+  case multiply:
+  echo "Multiplication of $a and $b is: ".($a * $b);
+  break;
+  case divide:
+  echo "Division of $a and $b is: ".($a / $b);
+  break;
+
+  default:
+  echo "You Choose Wrong Option";
+  
+}
+
+}
+echo "Welcome to My Calculator"."\n";
+$choice = "add";
+$a = 10;
+$b = 2;
+
+calc($choice,$a,$b);
+
+?>
+
+
+
+// function call inside a function
+
+
+<?php
+function any($choice){
+  
+  if ($choice == $value) {
+       return val();
+  }  
+  else if($choice == $value) {
+      return arr();
+  }
+  function val(){
+       $a = 5;
+       $b = 10;
+       $value = $a + $b;
+       echo "Sum of two value: ". val($value)."\n";
+  }
+  
+ function arr(){
+      $arr = array(2,3,4,5,6,7);
+      $plus = 0;
+      foreach ($arr as $element){
+         $plus += $element;
+      }
+      echo "Sum of Array Value: ". arr($arr)."\n";
+  }
+  
+}
+
+any($value);
+
+?>
