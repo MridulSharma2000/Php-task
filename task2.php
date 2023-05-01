@@ -14,7 +14,7 @@ function check($arr1){
             } 
             else{
            
-             echo $value, '<br>';
+             echo $value.' , ';
             }
         }
     }
@@ -57,6 +57,6 @@ $arr1 =  array(
     )
 );
 
-
 echo check($arr1);
+
 ?>
