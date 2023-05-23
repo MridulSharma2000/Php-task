@@ -59,26 +59,7 @@ if (isset($_POST['check'])) {
             </form>
         </div>
     </div>
-    <?php
-    // if (isset($_POST['check'])) {
-    //     $email = $_POST['Email'];
-    //     $sql = "SELECT * FROM `userdata` WHERE `EMAIL` = '$email'";
-    //     $result = mysqli_query($conn, $sql);
-    //     if (mysqli_num_rows($result) > 0) {
-    //         $fetch = mysqli_fetch_assoc($result);
-
-    //         if ($email == $fetch['EMAIL']) {
-    //             $_SESSION['id'] = $fetch['ID'];
-    //             $error[] = "You Entered Correct Email Address";
-    //             header('location:reset.php');
-
-
-    //         }
-    //     } else {
-    //         $error[] =  "Please Enter Correct Email Address";
-    //     }
-    // }
-    ?>
+   
 
 </body>
 

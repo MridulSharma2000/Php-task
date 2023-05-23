@@ -17,7 +17,7 @@ if (isset($_POST['update'])) {
     $modifieddate = $_POST['modified_date'];
 
 
-    // $updatename = "UPDATE `userdata` SET `FIRST NAME`='$nfname',`LAST NAME`='$nlname',`MODIFIEDDATE` = '$modifieddate' WHERE `ID` ='$ID'";
+    
     $updatename = "UPDATE `profile` SET `FIRST NAME`='$nfname',`LAST NAME`='$nlname' WHERE ID = '$ID'";
     $mod = "UPDATE `userdata` SET `MODIFIEDDATE`='$modifieddate' WHERE ID = '$ID'";
 
@@ -41,7 +41,7 @@ if (isset($_POST['update'])) {
         } elseif (($new_password != $confirm_password)) {
             $error[] =  "Confirm Password Not Matched";
         } else {
-            // $updatepass = "UPDATE `userdata` SET  `PASSWORD`='$confirm_password',`MODIFIEDDATE` = '$modifieddate' WHERE `ID` ='$ID'";
+           
             $updatepass = "UPDATE `userdata` SET `PASSWORD`='$confirm_password',`MODIFIEDDATE`='$modifieddate' WHERE ID = '$ID'";
             $passupload = mysqli_query($conn, $updatepass);
             if ($passupload) {
@@ -50,27 +50,7 @@ if (isset($_POST['update'])) {
         }
     }
 }
-// if (isset($_POST['update'])) {
-//     $old_password = $_POST['oldpassword'];
-//     $update_password = $_POST['updatepassword'];
-//     $new_password = $_POST['newpassword'];
-//     $confirm_password = $_POST['confirmnewpassword'];
-//     $modifieddate = $_POST['modified_date'];
 
-//     if (!empty($update_password) || !empty($new_password) || !empty($confirm_password)) {
-//         if ($update_password != $old_password) {
-//             $error[] =  "Old Password Not Matched";
-//         } elseif (($new_password != $confirm_password)) {
-//             $error[] =  "Confirm Password Not Matched";
-//         } else {
-//             $updatepass = "UPDATE `userdata` SET  `PASSWORD`='$confirm_password',`MODIFIEDDATE` = '$modifieddate' WHERE `ID` ='$ID'";
-//             $passupload = mysqli_query($conn, $updatepass);
-//             if($passupload){
-//                 $error[] =  "Password Updated Successfully";
-//             }
-//         }
-//     }
-// }
 
 if (isset($_FILES['file'])) {
     $modifieddate = $_POST['modified_date'];
@@ -87,7 +67,7 @@ if (isset($_FILES['file'])) {
     // $destination = 'upload/' . $newimage;
     move_uploaded_file($newi_tmpname, $destination);
     if (!empty($newimage)) {
-        // $updateimage = "UPDATE `userdata` SET  `IMAGE`='$destination',`MODIFIEDDATE` = '$modifieddate' WHERE `ID` = '$ID'";
+        
         $updateimage = "UPDATE `imagetable` SET `FILESIZE`='$newi_size',`EXTENSION`='$newi_type',`UNIQUENAME`='$newi_tmpname',`NAME`='$name',`PATH`='$destination' WHERE ID = '$ID'";
 
         $modf = "UPDATE `userdata` SET `MODIFIEDDATE`='$modifieddate' WHERE ID = '$ID'";
@@ -101,38 +81,7 @@ if (isset($_FILES['file'])) {
         }
     }
 }
-// if (isset($_POST['update'])) {
-//     $nfname = $_POST['newfirstname'];
-//     $nlname = $_POST['newlastname'];
-//     $old_password = $_POST['oldpassword'];
-//     $modifieddate = $_POST['modified_date'];
-//     $update_password = $_POST['updatepassword'];
-//     $new_password = $_POST['newpassword'];
-//     $confirm_password = $_POST['confirmnewpassword'];
-//     if (isset($_FILES['file'])) {
-//         $newimage = $_FILES['file']['name'];
-//         $newi_size = $_FILES['file']['size'];
-//         $newi_type = $_FILES['file']['type'];
-//         $newi_tmpname = $_FILES['file']['tmp_name'];
-//         $destination = 'upload/' . $newimage;
-//         move_uploaded_file($newi_tmpname, $destination);
-//     }
-//     if ($update_password != $old_password) {
-//         echo "Old Password Not Matched";
-//     } elseif (($new_password != $confirm_password)) {
-//         echo "Confirm Password Not Matched";
-//     } else {
-//         $update = "UPDATE `userdata` SET `IMAGE`='$destination',`FIRST NAME`='$nfname',`LAST NAME`='$nlname', `PASSWORD`='$confirm_password',`MODIFIEDDATE` = '$modifieddate' WHERE ID ='$ID'";
-//         echo "Password Updated Successfully";
 
-//         $upload = mysqli_query($conn, $update);
-//         if ($upload) {
-//             echo "Updated Succesfully";
-//         } else {
-//             echo "Not Updated";
-//         }
-//     }
-// }
 ?>
 
 <!DOCTYPE html>
@@ -150,7 +99,7 @@ if (isset($_FILES['file'])) {
     <div class="container">
         <?php
 
-        // $select = "SELECT * FROM `userdata` WHERE `ID` = '$ID'";
+       
         $select = "SELECT * FROM userdata inner join profile on userdata.ID = profile.ID left join `imagetable` on profile.ID = imagetable.ID WHERE userdata.ID = '$ID'";
 
         $result = mysqli_query($conn, $select);

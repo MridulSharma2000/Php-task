@@ -58,41 +58,7 @@ if (isset($_POST['signup'])) {
     }
 }
 
-// $register = "INSERT INTO `userdata`( `FIRST NAME`, `LAST NAME`, `EMAIL`, `PASSWORD`, `CREATEDDATE`, `USERTYPE`, `IMAGE`) VALUES ('$Firstname','$Lastname','$email','$cpassword','$createddate','$usertype','$destination')";
 
-// $upload = mysqli_query($conn, $register);
-
-// if ($upload) {
-//     $error[] = "Registered Successfully";
-//     header('location:login.php');
-// } else {
-//     $error[] = "Registertion Failed";
-// }
-
-
-
-
-
-
-// $image = $_FILES['image']['name'];
-// $i_size = $_FILES['image']['size'];
-// $i_type = $_FILES['image']['type'];
-// $i_tmpname = $_FILES['image']['tmp_name'];
-// $destination = 'upload/'.$image;
-// move_uploaded_file($i_tmpname, $destination);
-// $upload = "INSERT INTO `userdata` ( `FIRST NAME`, `LAST NAME`, `EMAIL`, `PASSWORD`, `IMAGE`) VALUES ( '$Firstname', '$Lastname', '$email', '$password','$image')";
-// if($password != $cpassword){
-//     echo "Password And Confirm Password does Not Match";
-// }
-// else{
-// try{ 
-//      $result = mysqli_query($conn,$upload);
-//      header('location:login.php');
-// }
-// catch (Exception $e) {  
-//         echo "User Already Exist";  
-//     }
-// }  
 ?>
 <!DOCTYPE html>
 <html lang="en">

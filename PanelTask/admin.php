@@ -29,7 +29,7 @@ if (!isset($admin_id)) {
 
 <body>
   <?php
-  // $sql = "SELECT * FROM `userdata` ";
+
   $sql ="SELECT * FROM userdata inner join profile on userdata.ID = profile.ID left join `imagetable` on profile.ID = imagetable.ID WHERE userdata.ID = '$admin_id'";
   $result = mysqli_query($conn, $sql);
 

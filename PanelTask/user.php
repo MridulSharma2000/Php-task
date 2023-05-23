@@ -41,7 +41,7 @@ if (!isset($user_id)) {
     <div class="container">
 
         <?php
-        // $select = "SELECT * FROM `userdata` WHERE `ID` = '$user_id' ";
+        
         $select = "SELECT * FROM userdata inner join profile on userdata.ID = profile.ID left join `imagetable` on profile.ID = imagetable.ID WHERE userdata.ID = '$user_id' ";
 
         $result = mysqli_query($conn, $select);

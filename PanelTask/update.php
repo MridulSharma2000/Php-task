@@ -16,7 +16,6 @@ if (isset($_POST['update'])) {
     $modifieddate = $_POST['modified_date'];
 
 
-    // $updatename = "UPDATE `userdata` SET `FIRST NAME`='$nfname',`LAST NAME`='$nlname',`MODIFIEDDATE` = '$modifieddate' WHERE `ID` ='$user_id'";
     $updatename = "UPDATE `profile` SET `FIRST NAME`='$nfname',`LAST NAME`='$nlname' WHERE ID = '$user_id'";
     $mod = "UPDATE `userdata` SET `MODIFIEDDATE`='$modifieddate' WHERE ID = '$user_id'";
 
@@ -41,7 +40,7 @@ if (isset($_POST['update'])) {
         } elseif (($new_password != $confirm_password)) {
             $error[] =  "Confirm Password Not Matched";
         } else {
-            // $updatepass = "UPDATE `userdata` SET  `PASSWORD`='$confirm_password',`MODIFIEDDATE` = '$modifieddate' WHERE `ID` ='$user_id'";
+
             $updatepass = "UPDATE `userdata` SET `PASSWORD`='$confirm_password',`MODIFIEDDATE`='$modifieddate' WHERE ID = '$user_id'";
             $passupload = mysqli_query($conn, $updatepass);
             if ($passupload) {
@@ -66,12 +65,11 @@ if (isset($_FILES['file'])) {
     // $destination = 'upload/' . $newimage;
     move_uploaded_file($newi_tmpname, $destination);
     if (!empty($newimage)) {
-        // $updateimage = "UPDATE `userdata` SET  `IMAGE`='$destination',`MODIFIEDDATE` = '$modifieddate' WHERE `ID` ='$user_id'";
         $updateimage = "UPDATE `imagetable` SET `FILESIZE`='$newi_size',`EXTENSION`='$newi_type',`UNIQUENAME`='$newi_tmpname',`NAME`='$name',`PATH`='$destination' WHERE ID = '$user_id'";
         $modf = "UPDATE `userdata` SET `MODIFIEDDATE`='$modifieddate' WHERE ID = '$user_id'";
         $imageupload = mysqli_query($conn, $updateimage);
         $modfupload = mysqli_query($conn, $modf);
-        if ($imageupload && $modfupload ) {
+        if ($imageupload && $modfupload) {
             $error[] =  "Image Updated Successfully";
         } else {
             $error[] =  "Not Updated";
@@ -95,7 +93,7 @@ if (isset($_FILES['file'])) {
     <div class="container">
         <?php
 
-        // $select = "SELECT * FROM `userdata` WHERE `ID` = '$user_id' ";
+        
         $select = "SELECT * FROM userdata inner join profile on userdata.ID = profile.ID left join `imagetable` on profile.ID = imagetable.ID WHERE userdata.ID = '$user_id'";
 
         $result = mysqli_query($conn, $select);
