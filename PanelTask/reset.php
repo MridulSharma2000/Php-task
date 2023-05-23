@@ -13,24 +13,26 @@ if (!isset($user_id)) {
 
 if (isset($_POST['Rest'])) {
     $id = $user_id;
-    $old_password = $_POST['oldpassword'];
-    $update_password = $_POST['updatepassword'];
     $new_password = $_POST['newpassword'];
     $confirm_password = $_POST['confirmnewpassword'];
     $modifieddate = $_POST['modified_date'];
-    if ($update_password != $old_password) {
-        $error[] =  "Old Password Not Matched";
-    } elseif (($new_password != $confirm_password)) {
-        $error[] =  "Confirm Password Not Matched";
-    } else {
-        $update = "UPDATE `userdata` SET  `PASSWORD`='$confirm_password',`MODIFIEDDATE` = '$modifieddate' WHERE `ID` = '$id'";
-        $error[] =  "Password Updated Successfully";
-        $upload = mysqli_query($conn, $update);
-        if ($upload) {
-            $error[] =  "Updated Succesfully";
+   
+    if (!empty($new_password) || !empty($confirm_password)) {
+        if (($new_password != $confirm_password)) {
+            $error[] =  "Confirm Password Not Matched";
         } else {
-            $error[] =  "Not Updated";
+            $update = "UPDATE `userdata` SET  `PASSWORD`='$confirm_password',`MODIFIEDDATE` = '$modifieddate' WHERE `ID` = '$id'";
+            $error[] =  "Password Updated Successfully";
+            $upload = mysqli_query($conn, $update);
+            if ($upload) {
+                $error[] =  "Updated Succesfully";
+            } else {
+                $error[] =  "Not Updated";
+            }
         }
+    }
+    else{
+        $error[] = "Please Enter Values";
     }
 }
 ?>
@@ -72,9 +74,6 @@ if (isset($_POST['Rest'])) {
                                                                         ?>" disabled>
                 <br>
                 <input type="hidden" name="modified_date" value="<?php echo date('Y-m-d H:i:s'); ?>" readonly="readonly">
-                <input type="hidden" name="oldpassword" value="<?php echo $fetch['PASSWORD']; ?>">
-                Old Password :<br> <input type="password" name="updatepassword" placeholder="Enter Old Password ">
-                <br>
                 New Password :<br> <input type="password" name="newpassword" placeholder="Enter New  Password ">
                 <br>
                 Confirm New Password :<br> <input type="password" name="confirmnewpassword" placeholder="Enter Confirm Password ">
