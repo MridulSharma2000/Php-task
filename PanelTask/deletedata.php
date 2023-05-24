@@ -33,7 +33,7 @@ if (isset($_SESSION['admin_id'])) {
    
 }
 elseif(isset($_SESSION['user_id'])){
-    echo "Sorry You Haven't Permission to Delete Any Data";
+    header('location:login.php');
 }
 
 
